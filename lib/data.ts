@@ -13,7 +13,7 @@ export const SITE = {
   role: "Lawyer / Artist",
   tagline:
     "Performance, installation, and lecture-performance at the intersection of law, myth, and memory.",
-  email: "hello@example.com",
+  email: "Lily.abichahine@gmail.com",
   location: "Beirut — Paris",
   heroImage: "/images/about/portrait-wide.jpg",
 };
