@@ -70,7 +70,6 @@ export default function Contact() {
           <a href={`mailto:${SITE.email}`} className="block hover:text-rust">
             {SITE.email}
           </a>
-          <span className="block text-ink/50">{SITE.location}</span>
         </div>
       </motion.div>
 
