@@ -1,8 +1,19 @@
+
+
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { PROJECTS, SITE } from "@/lib/data";
+
+const GROUPS = [
+  "Mare Nostrum",
+  "Visual Art",
+  "Lecture Performances",
+  "Tribunal",
+  "Academic and Artistic Research",
+] as const;
 
 /** Warm placeholder-safe image block. If the file isn't there yet, it falls
  * back to a soft gradient instead of a broken-image icon. */
@@ -35,6 +46,8 @@ const fadeUp = {
 };
 
 export default function Home() {
+  const [activeGroup, setActiveGroup] = useState<(typeof GROUPS)[number]>(GROUPS[0]);
+  const groupProjects = PROJECTS.filter((p) => p.group === activeGroup);
   return (
     <div>
       {/* ---------------------------------------------------------------- HERO */}
@@ -72,14 +85,13 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="font-mono text-xs uppercase tracking-widest2 text-white"
           >
-            {SITE.role} — {SITE.location}
           </motion.p>
           <motion.h1
             initial="hidden"
             animate="show"
             variants={fadeUp}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="mt-4 max-w-3xl font-display text-5xl italic leading-[1.05] text-white sm:text-7xl"
+            className="mt-4 max-w-3xl font-display text-5xl  leading-[1.05] text-white sm:text-7xl"
           >
             {SITE.name}
           </motion.h1>
@@ -104,35 +116,32 @@ export default function Home() {
       </section>
 
       {/* ---------------------------------------------------------------- INTRO */}
-      <section className="mx-auto max-w-6xl px-6 py-24 md:px-10">
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.4 }}
-          variants={fadeUp}
-          transition={{ duration: 0.7 }}
-          className="grid gap-8 md:grid-cols-[1fr_2fr] md:gap-16"
-        >
-          <p className="font-mono text-xs uppercase tracking-widest2 text-rust">
-            Case Summary
-          </p>
-          <p className="font-body text-2xl leading-relaxed text-ink/90 md:text-3xl">
-            {SITE.name} moves between performance, lecture-performance, video,
-            and installation — addressing the body, Mediterranean myth, urban
-            memory, and the legal questions that quietly govern them all.{" "}
-            <Link
-              href="/about"
-              className="text-rust underline decoration-brass/60 underline-offset-4 hover:decoration-rust"
-            >
-              Read the full biography →
-            </Link>
-          </p>
-        </motion.div>
-      </section>
+      <section className="mx-auto max-w-5xl px-6 py-24 md:px-10">
+  <motion.div
+    initial="hidden"
+    whileInView="show"
+    viewport={{ once: true, amount: 0.4 }}
+    variants={fadeUp}
+    transition={{ duration: 0.7 }}
+    className="text-center"
+  >
+    <p className="mx-auto max-w-4xl font-body text-2xl leading-relaxed text-ink/90 md:text-3xl">
+      {SITE.name} moves between performance, lecture-performance, video,
+      and installation—addressing the body, Mediterranean myth, urban
+      memory, and the legal questions that quietly govern them all.{" "}
+      <Link
+        href="/about"
+        className="text-rust underline decoration-brass/60 underline-offset-4 hover:decoration-rust"
+      >
+        Read the full biography →
+      </Link>
+    </p>
+  </motion.div>
+</section>
 
       {/* ---------------------------------------------------------------- INDEX */}
       <section className="border-t border-line/60">
-        <div className="mx-auto max-w-6xl px-6 py-8 md:px-10">
+        <div className="mx-auto max-w-6xl px-6 pt-8 md:px-10">
           <motion.p
             initial="hidden"
             whileInView="show"
@@ -141,55 +150,91 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="font-mono text-xs uppercase tracking-widest2 text-ink/50"
           >
-            Selected Works — {String(PROJECTS.length).padStart(2, "0")} Exhibits
+            Selected Works
           </motion.p>
+
+          {/* TABS */}
+          <div className="mt-5 flex flex-wrap gap-2 border-b border-line/60 pb-5">
+            {GROUPS.map((group) => {
+              const count = PROJECTS.filter((p) => p.group === group).length;
+              const isActive = group === activeGroup;
+              return (
+                <button
+                  key={group}
+                  onClick={() => setActiveGroup(group)}
+                  className={`rounded-full border px-4 py-2 font-mono text-xs uppercase tracking-widest2 transition-colors ${
+                    isActive
+                      ? "border-rust bg-rust text-cream"
+                      : "border-line/70 text-ink/60 hover:border-rust/60 hover:text-rust"
+                  }`}
+                >
+                  {group}{" "}
+                  <span className={isActive ? "text-cream/70" : "text-ink/40"}>
+                    ({String(count).padStart(2, "0")})
+                  </span>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
-        <ul>
-          {PROJECTS.map((project, i) => (
-            <motion.li
-              key={project.slug}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={fadeUp}
-              transition={{ duration: 0.6, delay: (i % 4) * 0.06 }}
-              className="border-t border-line/60 last:border-b"
-            >
-              <Link
-                href={`/work/${project.slug}`}
-                className="group mx-auto flex max-w-6xl items-center gap-6 px-6 py-7 transition-colors hover:bg-paper2/70 md:px-10 md:py-9"
+        <AnimatePresence mode="wait">
+          <motion.ul
+            key={activeGroup}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.3 }}
+          >
+            {groupProjects.length === 0 && (
+              <li className="mx-auto max-w-6xl px-6 py-12 text-center font-body text-ink/50 md:px-10">
+                No works added to this section yet.
+              </li>
+            )}
+            {groupProjects.map((project, i) => (
+              <motion.li
+                key={project.slug}
+                initial="hidden"
+                animate="show"
+                variants={fadeUp}
+                transition={{ duration: 0.4, delay: (i % 4) * 0.05 }}
+                className="border-t border-line/60 last:border-b"
               >
-                <span className="hidden font-mono text-sm text-brass sm:block">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+                <Link
+                  href={`/work/${project.slug}`}
+                  className="group mx-auto flex max-w-6xl items-center gap-6 px-6 py-7 transition-colors hover:bg-paper2/70 md:px-10 md:py-9"
+                >
+                  <span className="hidden font-mono text-sm text-brass sm:block">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
 
-                <Frame
-                  src={project.coverImage}
-                  alt={project.title}
-                  className="h-16 w-20 shrink-0 rounded-sm sm:h-20 sm:w-28"
-                />
+                  <Frame
+                    src={project.coverImage}
+                    alt={project.title}
+                    className="h-16 w-20 shrink-0 rounded-sm sm:h-20 sm:w-28"
+                  />
 
-                <div className="min-w-0 flex-1">
-                  <h2 className="truncate font-display text-xl italic text-ink transition-colors group-hover:text-rust sm:text-2xl md:text-3xl">
-                    {project.title}
-                  </h2>
-                  <p className="mt-1 font-mono text-[11px] uppercase tracking-widest2 text-ink/50">
-                    {project.category} · {project.location}
-                  </p>
-                </div>
+                  <div className="min-w-0 flex-1">
+                    <h2 className="truncate font-display text-xl text-ink transition-colors group-hover:text-rust sm:text-2xl md:text-3xl">
+                      {project.title}
+                    </h2>
+                    <p className="mt-1 font-mono text-[11px] uppercase tracking-widest2 text-ink/50">
+                      {project.category} · {project.location}
+                    </p>
+                  </div>
 
-                <span className="shrink-0 font-mono text-xs text-ink/50">
-                  {project.date}
-                </span>
+                  <span className="shrink-0 font-mono text-xs text-ink/50">
+                    {project.date}
+                  </span>
 
-                <span className="hidden shrink-0 font-display text-2xl text-ink/30 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-rust sm:block">
-                  →
-                </span>
-              </Link>
-            </motion.li>
-          ))}
-        </ul>
+                  <span className="hidden shrink-0 font-display text-2xl text-ink/30 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-rust sm:block">
+                    →
+                  </span>
+                </Link>
+              </motion.li>
+            ))}
+          </motion.ul>
+        </AnimatePresence>
       </section>
 
       {/* ---------------------------------------------------------------- CTA */}

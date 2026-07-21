@@ -99,7 +99,7 @@ export default function RootLayout({
         <footer className="border-t border-line/60 bg-ink text-cream">
           <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-14 md:flex-row md:items-end md:justify-between md:px-10">
             <div>
-              <p className="font-display text-2xl italic text-cream">
+              <p className="font-display text-2xl  text-cream">
                 {SITE.name}
               </p>
               <p className="mt-2 max-w-sm font-body text-sm text-cream/60">

@@ -10,11 +10,9 @@
 
 export const SITE = {
   name: "Lily Abichahine",
-  role: "Lawyer / Artist",
   tagline:
     "Performance, installation, and lecture-performance at the intersection of law, myth, and memory.",
   email: "Lily.abichahine@gmail.com",
-  location: "Beirut — Paris",
   heroImage: "/images/about/portrait-wide.jpg",
 };
 
@@ -38,6 +36,12 @@ export type Project = {
   coverImage: string;
   gallery?: string[];
   embed?: Embed;
+  group:
+    | "Mare Nostrum"
+    | "Visual Art"
+    | "Lecture Performances"
+    | "Tribunal"
+    | "Academic and Artistic Research";
 };
 
 export const PROJECTS: Project[] = [
@@ -48,6 +52,7 @@ export const PROJECTS: Project[] = [
     category: "Lecture Performance",
     venue: "Theater Bremen",
     location: "Bremen, Germany",
+    group: "Mare Nostrum",
     credits: [
       "Director, Writer & Performer — Lily Abichahine",
       "Video Editors — Rami El-Sabbagh, Rabih Ghannam",
@@ -61,7 +66,6 @@ export const PROJECTS: Project[] = [
       "Exploring both reality and mythology, she tackles the myth of Prometheus. In this work, she transforms herself into a contemporary haruspex and tells the story of migration from ancient to contemporary times, offering her audience a reading of the future that mixes facts with dark humor, in text, video, and sound.",
     ],
     coverImage: "/images/work/our-sea-2/cover.jpg",
-    
     embed: {
       platform: "vimeo",
       url: "https://vimeo.com/785677353",
@@ -75,6 +79,7 @@ export const PROJECTS: Project[] = [
     category: "Installation",
     venue: "Beit Beirut",
     location: "Beirut, Lebanon",
+    group: "Visual Art",
     credits: [
       "Concept, Design & Text — Lily Abichahine",
       "Project Assistants — Nour Abdelbaki, Soraya Salwan Hammoud",
@@ -88,7 +93,6 @@ export const PROJECTS: Project[] = [
       "Symbol of a city in continuous construction and deconstruction, the preservation of memory is achieved through the archiving of oral history and the physical reconstruction of one of the main school elements.",
     ],
     coverImage: "/images/work/abjad-hawwaz/cover.jpg",
-    
     embed: {
       platform: "vimeo",
       url: "https://vimeo.com/792920487",
@@ -102,6 +106,7 @@ export const PROJECTS: Project[] = [
     category: "Installation",
     venue: "The Muse",
     location: "Sudan — work in progress",
+    group: "Visual Art",
     credits: [
       "Concept, Design & Text — Lily Abichahine, in conversation with Hazem Al-Muhammad",
       "Project Assistant — Marwan Hamza",
@@ -121,6 +126,7 @@ export const PROJECTS: Project[] = [
     category: "Lecture-Performance",
     venue: "Conservatoire National Supérieur d'Art Dramatique",
     location: "Paris, France",
+    group: "Lecture Performances",
     credits: [
       "Writer & Performer — Lily Abichahine",
       "With the generous guidance of Giuseppe Burighel",
@@ -138,6 +144,7 @@ export const PROJECTS: Project[] = [
     category: "Lecture Performance",
     venue: "Künstlerhaus Mousonturm",
     location: "Frankfurt, Germany",
+    group: "Lecture Performances",
     credits: [
       "Writer & Performer — Lily Abichahine",
       "Assistant Researchers — Rola Makké, Lauren Hutchinson",
@@ -163,6 +170,7 @@ export const PROJECTS: Project[] = [
     category: "Performance",
     venue: "Santa Maria dello Spasimo",
     location: "Palermo, Italy",
+    group: "Mare Nostrum",
     credits: [
       "Director, Writer & Performer — Lily Abichahine",
       "Video Editor — Rami El-Sabbagh",
@@ -195,6 +203,7 @@ export const PROJECTS: Project[] = [
     category: "Collective Exhibition",
     venue: "Colonels Row",
     location: "New York, United States",
+    group: "Visual Art",
     credits: [
       "Concept & Drafting — Lily Abichahine",
       "Assistant Researchers — Tala Rahal, Tamar Kharatishvlii",
@@ -207,23 +216,89 @@ export const PROJECTS: Project[] = [
     ],
     coverImage: "/images/work/agreement-for-photography-provision/cover.jpg",
   },
+
+  // ----------------------------------------------------------------- TRIBUNAL
+
+  {
+    slug: "tribunal-for-the-neckar",
+    title: "The Tribunal for the Neckar",
+    date: "2026",
+    category: "Performative Tribunal",
+    venue: "Neckar Insel",
+    location: "Stuttgart, Germany",
+    group: "Tribunal",
+    credits: [
+      "Concept, Text & Direction — Lily Abichahine",
+      "Artistic Curation — Tamarind Rossetti, Stephen Wright",
+      "Scenography — Student of the Haute École des Arts du Rhin (HEAR), Strasbourg",
+      "Video — Nina Corman",
+      "Sound — Nina Corman",
+      "With the participation of Suzanne Aski, Baptiste Morizot, Hervé Coves, Béatrice Josse",
+    ],
+    description: [
+      "Tribunal for the Neckar is a performative civic assembly staged along the banks of the Neckar River, within the institution Neckar Insel. It gathers ecology experts, residents of Stuttgart, and associations working on river pollution in the state of Baden-Württemberg within a shared space of dialogue.",
+      "The project was commissioned by Johanne Mazeaud of the Institut français of Stuttgart and presented under the curation of the Kunsthalle Stuttgart.",
+    ],
+    coverImage: "/images/work/tribunal-for-the-neckar/cover.jpg",
+  },
+  {
+    slug: "bodies-on-trial-218",
+    title: "Bodies on Trial – §218",
+    date: "2026",
+    category: "Performativ Tribunal",
+    venue: "Theater Rampe",
+    location: "Stuttgart, Germany",
+    group: "Tribunal",
+    credits: [
+      "Concept, Scenario & Direction — Lily Abichahine",
+      "Video — Krasa",
+      "Photography — Lauryn Hölzel",
+      "Assistant — Evgenia Asimakopoulou",
+      "Sound — Max Kirks",
+      "Music — Nils Eckart Production",
+      "Production Assistant — Anne Mahlow",
+      "Special thanks to — Ilona Schaal, Heba Amin, Theresa Bürkle",
+    ],
+    description: [
+      "Bodies on Trial – §218 invites the public into a heightened, participatory courtroom where personal experience meets legal fiction. The performance exposes the contradictions and unresolved tensions around Germany's abortion law, questioning who is heard, who is silenced, and how bodies become evidence within systems of governance.",
+      "This tribunal-performance invites the audience to reflect, debate, and bear witness to the tensions between law, autonomy, and the body — and to consider what justice might look like beyond the written law. Developed as part of a lectureship for the Fachklasse for Digital and Time-based Art (Klasse Amin) during the Winter Semester 2025/2026, the artist's students took part in the performance.",
+    ],
+    coverImage: "/images/work/bodies-on-trial-218/cover.jpg",
+  },
+  {
+    slug: "tribunal-for-an-island",
+    title: "Tribunal for an Island",
+    date: "2024",
+    category: "Participatory Performance",
+    venue: "West Cork Art Center Uillinn",
+    location: "Cork, Ireland",
+    group: "Tribunal",
+    credits: [
+      "Director & Writer — Lily Abichahine",
+      "Video Artist & Director of Photography — Tomasz Madajczak",
+      "Mentorship — Harry Brown",
+      "Poster Design — Francois Nour",
+      "Assistant — Blessing Masueme",
+      "Special thanks to — Deirdre McGowan, Paul Hayes, Judith Gilbert, Ann Davoren",
+      "With the generous support of West Cork Arts Centre (Uillinn) and Creative Europe",
+    ],
+    description: [
+      "As part of her research on fiction in art and law, the artist developed Tribunal for an Island during a residency at Uillinn: West Cork Arts Centre and fieldwork on Sherkin and Cape Clear Islands. The project unfolded in two phases: informal island forums, where residents discussed shared concerns identified through interviews and observation, and a staging in the form of an open-air people's tribunal involving experts, witnesses, and debate.",
+      "In keeping with the ethics of community-based practice, the work was neither photographed nor filmed, prioritizing live dialogue and collective presence. Drawing on her legal background, the artist reimagines the tribunal as a performative space to perform the law and recenter island communities often marginalized from cultural life.",
+    ],
+    coverImage: "/images/work/tribunal-for-an-island/cover.jpg",
+  },
 ];
 
 export const ABOUT = {
   eyebrow: "About / CV",
   heading: "The Artist",
   portrait: "/images/about/cover.jpg",
-  portraitCredit: "Photo courtesy of Paul Ghorra",
+  portraitCredit: "© Paul Ghorra",
   bio: [
-    "Born in 1985, Lily Abichahine grew up in Beirut. She graduated from the Faculty of Law at Saint Joseph University and has worked in Beirut and Paris as a lawyer and consultant. She obtained her Bachelor's degree in Performing Arts in 2018 and her Master's degree in 2020, both from the University of Paris VIII.",
-    "Her dissertation and first work, Narrations Chorégraphiques: Fragments d'un Corps en Course, analyses running as an aesthetic gesture. Her artistic practice confronts legal issues with fictional narratives in a lecture-performance format, as in Exquisite Corpse (2021), which premiered in Frankfurt, Germany.",
-    "As part of her Mare Nostrum project (since 2021 — ongoing), she has been working between Mediterranean cities, contemplating their realities as the fundamental expression of their collective unconscious. She refers to their myths, reinterpreting them on stage, tracing connections between cities and underlining the invisible links that underpin the Mediterranean context.",
-    "Her installation Abjad Hawwaz: How I Was Destroyed by a Mall Thrice (2022) addresses the issue of urban planning in Beirut in the context of post-war reconstruction. Her practice is multidisciplinary, devoted to the study of myth, art history, and archaeology through the prism of law. She examines issues of genealogy, heritage, and collective memory.",
-  ],
-  education: [
-    { year: "2020", item: "M.A. Performing Arts, Université Paris VIII" },
-    { year: "2018", item: "B.A. Performing Arts, Université Paris VIII" },
-    { year: "—", item: "Faculty of Law, Saint Joseph University, Beirut" },
+    "Lily Abichahine is an artist and researcher whose work engages legal concepts as both material and method. Trained as a lawyer, she later studied performing arts at Paris VIII University, where she is currently completing a PhD on the intersections of fiction, law, and artistic representation, with an affiliation to the University of Humanistic Studies in the Netherlands.",
+    "Her practice explores the relationships between law, governance, collective memory, and artistic representation through performances, installations, video works, and site-specific projects she calls “tribunals.” Interrogating modern democracies and architectures of justice, she creates immersive, research-based works that draw on art history, archaeology, urbanism, criminology, and geopolitics to examine how legal and political structures shape bodies, territories, heritage, and the natural world.",
+    "She teaches workshops at the intersection of law and art at universities and art schools internationally. Her work has been supported through residencies and research fellowships, most recently at the Villa Medici in Rome (2025) and Akademie Schloss Solitude in Stuttgart (2025–2026). She is a long-distance runner and triathlete, attentive to the rules and structures that govern endurance sports, echoing a broader interest in systems of law and constraint.",
   ],
 };
 

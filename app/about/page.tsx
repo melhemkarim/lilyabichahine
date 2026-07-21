@@ -60,7 +60,7 @@ export default function About() {
           <p className="font-mono text-xs uppercase tracking-widest2 text-rust">
             {ABOUT.eyebrow}
           </p>
-          <h1 className="mt-4 font-display text-4xl italic text-ink sm:text-5xl">
+          <h1 className="mt-4 font-display text-4xl  text-ink sm:text-5xl">
             {ABOUT.heading}
           </h1>
 
@@ -76,67 +76,41 @@ export default function About() {
       <section className="border-t border-line/60">
         <div className="mx-auto max-w-6xl px-6 py-16 md:px-10">
           <motion.p
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            transition={{ duration: 0.5 }}
-            className="font-mono text-xs uppercase tracking-widest2 text-ink/50"
-          >
-            Education
-          </motion.p>
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true }}
+  variants={fadeUp}
+  transition={{ duration: 0.5 }}
+  className="font-mono text-xs uppercase tracking-widest2 text-ink/50"
+>
+  Academic Background
+</motion.p>
 
-          <ul className="mt-6 divide-y divide-line/40 border-y border-line/40">
-            {ABOUT.education.map((row, i) => (
-              <motion.li
-                key={i}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                transition={{ duration: 0.5, delay: i * 0.05 }}
-                className="flex items-baseline gap-6 py-4 font-body text-base text-ink/85"
-              >
-                <span className="w-14 shrink-0 font-mono text-sm text-brass">
-                  {row.year}
-                </span>
-                <span>{row.item}</span>
-              </motion.li>
-            ))}
-          </ul>
+<motion.div
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true }}
+  variants={fadeUp}
+  transition={{ duration: 0.5, delay: 0.1 }}
+  className="mt-6 max-w-4xl font-body text-lg leading-relaxed text-ink/85"
+>
+  <p>
+    Lily Abichahine is currently pursuing a PhD in Performing Arts at EDESTA,
+    Paris VIII University, in affiliation with the University of Humanistic
+    Studies in Utrecht, Netherlands. Her doctoral research,
+    <em>“Fiction in Art and Law: Rethinking the Possibilities of Law via Artistic
+    Practices,”</em> investigates the relationship between artistic fiction and
+    legal imagination under the supervision of Éliane Beaufils and Nicole
+    Immler.
+  </p>
 
-          <motion.p
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            transition={{ duration: 0.5 }}
-            className="mt-14 font-mono text-xs uppercase tracking-widest2 text-ink/50"
-          >
-            Selected Works
-          </motion.p>
-
-          <ul className="mt-6 divide-y divide-line/40 border-y border-line/40">
-            {PROJECTS.map((p, i) => (
-              <motion.li
-                key={p.slug}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                transition={{ duration: 0.5, delay: (i % 5) * 0.05 }}
-                className="flex flex-wrap items-baseline gap-x-6 gap-y-1 py-4 font-body text-base text-ink/85"
-              >
-                <span className="w-14 shrink-0 font-mono text-sm text-brass">
-                  {p.date}
-                </span>
-                <span className="font-display italic">{p.title}</span>
-                <span className="font-mono text-[11px] uppercase tracking-widest2 text-ink/45">
-                  {p.category}, {p.location}
-                </span>
-              </motion.li>
-            ))}
-          </ul>
+  <p className="mt-5">
+    She holds degrees in Performing Arts from Paris VIII University (BA,
+    2015–2019; MA, 2019–2020) and previously trained in law, earning a BA from
+    Saint Joseph University, Lebanon (2003–2007), and an MA from Paris
+    Descartes University (2008).
+  </p>
+</motion.div>
         </div>
       </section>
     </div>
