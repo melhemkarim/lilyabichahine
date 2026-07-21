@@ -25,7 +25,7 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: `${SITE.name} — ${SITE.role}`,
+  title: `${SITE.name} `,
   description: SITE.tagline,
 };
 
@@ -113,7 +113,6 @@ export default function RootLayout({
               >
                 {SITE.email}
               </a>
-              <span>{SITE.location}</span>
               <span className="mt-2 text-cream/40">
                 © {new Date().getFullYear()} {SITE.name}
               </span>
