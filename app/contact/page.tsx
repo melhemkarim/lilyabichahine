@@ -66,11 +66,7 @@ export default function Contact() {
           send a note below — or write directly.
         </p>
 
-        <div className="mt-10 space-y-2 font-mono text-sm uppercase tracking-widest2 text-ink/70">
-          <a href={`mailto:${SITE.email}`} className="block hover:text-rust">
-            {SITE.email}
-          </a>
-        </div>
+        
       </motion.div>
 
       <motion.form
@@ -79,7 +75,7 @@ export default function Contact() {
         variants={fadeUp}
         transition={{ duration: 0.7, delay: 0.1 }}
         onSubmit={handleSubmit}
-        className="space-y-6 border border-line/60 bg-paper2/40 p-8 sm:p-10"
+        className="space-y-6 border border-line/60 bg-white p-8 sm:p-10"
       >
         <p className="font-mono text-[11px] uppercase tracking-widest2 text-ink/40">
           Exhibit — Inquiry Form

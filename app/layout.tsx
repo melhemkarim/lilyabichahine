@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/#work", label: "Projects" },
+  { href: "/#work", label: "Selected Works" },
   { href: "/about", label: "About / CV" },
   { href: "/contact", label: "Contact" },
 ];
@@ -44,54 +44,38 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${fraunces.variable} ${newsreader.variable} ${plexMono.variable} font-display grain relative min-h-screen bg-paper text-ink antialiased`}
+        className={`${fraunces.variable} ${newsreader.variable} ${plexMono.variable} font-display grain relative min-h-screen bg-white text-ink antialiased`}
       >
         {/* CSS-only mobile nav toggle */}
         <input type="checkbox" id="nav-toggle" className="peer hidden" />
 
-        <header className="sticky top-0 z-40 border-b border-line/60 bg-paper/90 backdrop-blur-sm">
-          <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-10">
-            <Link
-              href="/"
-              className="flex items-center gap-3 font-mono text-xs uppercase tracking-widest2 text-ink"
-            >
-              
-              <span>{SITE.name}</span>
-            </Link>
+        <header className="sticky top-0 z-40 border-b border-line/60 bg-white backdrop-blur-sm">
+  <div className="mx-auto flex max-w-6xl flex-col gap-2 px-6 py-4 md:flex-row md:items-center md:justify-between md:gap-0 md:px-10">
+    <Link
+      href="/"
+      className="flex items-center gap-3 font-mono text-xs uppercase tracking-widest2 text-ink"
+    >
+      <span>{SITE.name}</span>
+    </Link>
 
-            <nav className="flex items-center gap-4 md:gap-8 font-mono text-xs uppercase tracking-widest2">
-              {NAV_LINKS.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="group relative py-1 text-ink/80 transition-colors hover:text-rust"
-                >
-                  {link.label}
-                  <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-rust transition-all duration-300 group-hover:w-full" />
-                </Link>
-              ))}
-            </nav>
-
-            
-          </div>
-
-          {/* mobile panel */}
-          <nav className="hidden flex-col gap-1 border-t border-line/60 bg-paper px-6 py-4 font-mono text-sm uppercase tracking-widest2 peer-checked:flex md:hidden">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="border-b border-line/30 py-3 text-ink/80 last:border-none"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-        </header>
+    <nav className="flex items-center gap-x-3 overflow-x-auto whitespace-nowrap font-mono text-[10px] uppercase tracking-widest2 [-ms-overflow-style:none] [scrollbar-width:none] md:gap-x-8 md:overflow-visible md:text-xs [&::-webkit-scrollbar]:hidden">
+      {NAV_LINKS.map((link) => (
+        <Link
+          key={link.href}
+          href={link.href}
+          className="group relative shrink-0 py-1 text-ink/80 transition-colors hover:text-rust"
+        >
+          {link.label}
+          <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-rust transition-all duration-300 group-hover:w-full" />
+        </Link>
+      ))}
+    </nav>
+  </div>
+</header>
 
         <main className="relative z-0">{children}</main>
 
-        <footer className="border-t border-line/60 bg-ink text-cream">
+        <footer className="border-t border-line/60 bg-black text-white">
           <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-14 md:flex-row md:items-end md:justify-between md:px-10">
             <div>
               <p className="font-display text-2xl  text-cream">

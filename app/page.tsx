@@ -222,7 +222,7 @@ export default function Home() {
                 >
                   <Link
                     href={`/work/${project.slug}`}
-                    className="group mx-auto flex max-w-6xl items-center gap-6 px-6 py-7 transition-colors hover:bg-paper2/70 md:px-10 md:py-9"
+                    className="group mx-auto flex max-w-6xl items-center gap-6 px-6 py-7 transition-colors hover:bg-white/70 md:px-10 md:py-9"
                   >
                     <span className="hidden font-mono text-sm text-brass sm:block">
                       {String(i + 1).padStart(2, "0")}
@@ -259,7 +259,7 @@ export default function Home() {
       </section>
 
       {/* ---------------------------------------------------------------- CTA */}
-      <section className="border-t border-line/60 bg-ink">
+      <section className="border-t border-line/60 bg-black text-white">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -268,7 +268,7 @@ export default function Home() {
           transition={{ duration: 0.7 }}
           className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-8 px-6 py-24 md:flex-row md:items-center md:px-10"
         >
-          <h3 className="max-w-lg font-display text-3xl  text-cream sm:text-4xl">
+          <h3 className="max-w-lg font-display text-3xl  text-white sm:text-4xl">
             For commissions, residencies, and press inquiries.
           </h3>
           <Link
