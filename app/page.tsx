@@ -259,7 +259,7 @@ export default function Home() {
       </section>
 
       {/* ---------------------------------------------------------------- CTA */}
-      <section className="border-t border-line/60 bg-black text-white">
+      <section className="border-t border-line/60 bg-white text-black">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -268,12 +268,12 @@ export default function Home() {
           transition={{ duration: 0.7 }}
           className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-8 px-6 py-24 md:flex-row md:items-center md:px-10"
         >
-          <h3 className="max-w-lg font-display text-3xl  text-white sm:text-4xl">
+          <h3 className="max-w-lg font-display text-3xl  text-black sm:text-4xl">
             For commissions, residencies, and press inquiries.
           </h3>
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-3 rounded-full border border-brass/70 px-7 py-3 font-mono text-xs uppercase tracking-widest2 text-cream transition-colors hover:bg-rust hover:border-rust"
+            className="group inline-flex items-center gap-3 rounded-full border border-brass/70 px-7 py-3 font-mono text-xs uppercase tracking-widest2 text-black transition-colors  hover:border-black"
           >
             Get in touch
             <span className="transition-transform duration-300 group-hover:translate-x-1">
