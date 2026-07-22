@@ -125,8 +125,8 @@ export default function Home() {
       </section>
 
       {/* ---------------------------------------------------------------- INTRO */}
-      <section className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-16 pt-40 md:px-10">
-      
+      <section className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-16 pt-20 md:px-10">
+        
   <motion.div
     initial="hidden"
     whileInView="show"
