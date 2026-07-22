@@ -58,7 +58,7 @@ export default function Contact() {
         <p className="font-mono text-xs uppercase tracking-widest2 text-rust">
           Contact
         </p>
-        <h1 className="mt-4 font-display text-4xl italic text-ink sm:text-5xl">
+        <h1 className="mt-4 font-display text-4xl  text-ink sm:text-5xl">
           Let&rsquo;s start a file.
         </h1>
         <p className="mt-6 max-w-sm font-body text-lg leading-relaxed text-ink/80">

@@ -10,8 +10,9 @@
 
 export const SITE = {
   name: "Lily Abichahine",
+  role: "Artist | Researcher",
   tagline:
-    "Performance, installation, and lecture-performance at the intersection of law, myth, and memory.",
+    "Investigating law as both material and method, the practice engages with fiction, governance, collective memory, and artistic representation through performances, installations, moving image, and site-specific tribunals",
   email: "Lily.abichahine@gmail.com",
   heroImage: "/images/about/portrait-wide.jpg",
 };
@@ -40,7 +41,7 @@ export type Project = {
     | "Mare Nostrum"
     | "Visual Art"
     | "Lecture Performances"
-    | "Tribunal"
+    | "Tribunals"
     | "Academic and Artistic Research";
 };
 
@@ -226,7 +227,7 @@ export const PROJECTS: Project[] = [
     category: "Performative Tribunal",
     venue: "Neckar Insel",
     location: "Stuttgart, Germany",
-    group: "Tribunal",
+    group: "Tribunals",
     credits: [
       "Concept, Text & Direction — Lily Abichahine",
       "Artistic Curation — Tamarind Rossetti, Stephen Wright",
@@ -248,7 +249,7 @@ export const PROJECTS: Project[] = [
     category: "Performativ Tribunal",
     venue: "Theater Rampe",
     location: "Stuttgart, Germany",
-    group: "Tribunal",
+    group: "Tribunals",
     credits: [
       "Concept, Scenario & Direction — Lily Abichahine",
       "Video — Krasa",
@@ -272,7 +273,7 @@ export const PROJECTS: Project[] = [
     category: "Participatory Performance",
     venue: "West Cork Art Center Uillinn",
     location: "Cork, Ireland",
-    group: "Tribunal",
+    group: "Tribunals",
     credits: [
       "Director & Writer — Lily Abichahine",
       "Video Artist & Director of Photography — Tomasz Madajczak",

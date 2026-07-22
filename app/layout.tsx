@@ -43,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${fraunces.variable} ${newsreader.variable} ${plexMono.variable} font-body grain relative min-h-screen bg-paper text-ink antialiased`}
+        className={`${fraunces.variable} ${newsreader.variable} ${plexMono.variable} font-display grain relative min-h-screen bg-paper text-ink antialiased`}
       >
         {/* CSS-only mobile nav toggle */}
         <input type="checkbox" id="nav-toggle" className="peer hidden" />
@@ -55,10 +55,10 @@ export default function RootLayout({
               className="flex items-center gap-3 font-mono text-xs uppercase tracking-widest2 text-ink"
             >
               
-              <span className="hidden sm:inline">{SITE.name}</span>
+              <span>{SITE.name}</span>
             </Link>
 
-            <nav className="hidden items-center gap-8 font-mono text-xs uppercase tracking-widest2 md:flex">
+            <nav className="flex items-center gap-4 md:gap-8 font-mono text-xs uppercase tracking-widest2">
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.href}
@@ -71,13 +71,7 @@ export default function RootLayout({
               ))}
             </nav>
 
-            <label
-              htmlFor="nav-toggle"
-              className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-line/70 md:hidden"
-              aria-label="Toggle menu"
-            >
-              <span className="font-mono text-xs">☰</span>
-            </label>
+            
           </div>
 
           {/* mobile panel */}
@@ -102,7 +96,7 @@ export default function RootLayout({
               <p className="font-display text-2xl  text-cream">
                 {SITE.name}
               </p>
-              <p className="mt-2 max-w-sm font-body text-sm text-cream/60">
+              <p className="mt-2 max-w-sm font-display text-sm text-cream/60">
                 {SITE.tagline}
               </p>
             </div>

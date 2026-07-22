@@ -11,7 +11,7 @@ const GROUPS = [
   "Mare Nostrum",
   "Visual Art",
   "Lecture Performances",
-  "Tribunal",
+  "Tribunals",
   "Academic and Artistic Research",
 ] as const;
 
@@ -86,6 +86,15 @@ export default function Home() {
             className="font-mono text-xs uppercase tracking-widest2 text-white"
           >
           </motion.p>
+          <motion.p
+            initial="hidden"
+            animate="show"
+            variants={fadeUp}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="mt-4 max-w-lg font-display text-lg  leading-[1.05] text-white sm:text-lg"
+          >
+            {SITE.role}
+          </motion.p>
           <motion.h1
             initial="hidden"
             animate="show"
@@ -125,10 +134,8 @@ export default function Home() {
     transition={{ duration: 0.7 }}
     className="text-center"
   >
-    <p className="mx-auto max-w-4xl font-body text-2xl leading-relaxed text-ink/90 md:text-3xl">
-      {SITE.name} moves between performance, lecture-performance, video,
-      and installation—addressing the body, Mediterranean myth, urban
-      memory, and the legal questions that quietly govern them all.{" "}
+    <p className="mx-auto max-w-4xl text-justify font-body text-2xl leading-relaxed text-ink/90 md:text-3xl">
+      Lily Abichahine moves between performance, lecture-performance, video, and installation—addressing the body, Mediterranean myth, urban memory, and the legal questions that quietly govern them all.
       <Link
         href="/about"
         className="text-rust underline decoration-brass/60 underline-offset-4 hover:decoration-rust"
@@ -247,7 +254,7 @@ export default function Home() {
           transition={{ duration: 0.7 }}
           className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-8 px-6 py-24 md:flex-row md:items-center md:px-10"
         >
-          <h3 className="max-w-lg font-display text-3xl italic text-cream sm:text-4xl">
+          <h3 className="max-w-lg font-display text-3xl  text-cream sm:text-4xl">
             For commissions, residencies, and press inquiries.
           </h3>
           <Link
