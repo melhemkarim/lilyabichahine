@@ -149,7 +149,7 @@ export default function Home() {
         href="/about"
         className="text-rust underline decoration-brass/60 underline-offset-4 hover:decoration-rust"
       >
-        Read the full biography →
+       Full biography →
       </Link>
     </p>
   </motion.div>

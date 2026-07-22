@@ -47,6 +47,29 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
+    slug: "our-sea-3",
+    title: "Our Sea III: Tantalus Cries",
+    date: "2027",
+    category: "Lecture Performance",
+    venue: "Theater Bremen",
+    location: "Bremen, Germany",
+    group: "Mare Nostrum",
+    credits: [
+      "Director, Writer & Performer — Lily Abichahine",
+      "Video Editors — Rami El-Sabbagh, Rabih Ghannam",
+      "Docu-Essay Editor — Firas El-Hallak",
+      "Directors of Photography — François Duverger, Barış B. Atal",
+      "Camera Assistants — Valentin Printant, Fatemeh Melika Gholizadeh, Yalçın Inan",
+      "Sound Artist — Jad Atoui",
+    ],
+    description: [
+      "In Our Sea III: Tantalus Cries, I intend to explore the two Mediterranean cities of Athens and Alexandria, tackling the myth of Tantalus. According to the Roman poet Ovid, Tantalus was a king who was punished by the gods for killing his son and offering his flesh to the gods as a meal. Outraged by his actions, the gods condemned him to forever stand in a pool of water under a fruit tree with low-hanging branches. Whenever he tried to drink the water or eat the fruit, it would recede from his reach. Athens, Alexandria, Tantalus, Poseidon, Pelops, Metis, Athena, Alexander the Great: between myth, history and geography, I will be tracking these stories linking the water and the land.",
+      "Athens' famous Acropolis, the city’s most prominent hill, served as the primary water source during ancient times. According to the myth, it is Poseidon, the God of the waters and the sea, who created on this hill the first well with his spear. It became an important symbol of the city's connection to its mythology, especially as various springs and wells on the hill were used by the inhabitants as a source of drinking water and for religious ceremonies. In Alexandria, we find resonance of the myth through Poseidon to whom the mythical pharos was dedicated. In the reinterpretation of these mythologies, this project aims to draw parallels between the current ecological crisis and ancient literature in the context of today’s Mediterranean and beyond. We have been endlessly exploiting our waters for years. We are eating poisoned fish. We are swimming in water contaminated with plastic. What would be the impact in the coming years if these unethical, non-ecological and unsustainable conditions persist? By abusing our land and our sea, won’t we be punished just like Tantalus was?",
+    ],
+    coverImage: "/images/work/our-sea-3/cover.jpg",
+    
+  },
+  {
     slug: "our-sea-2",
     title: "Our Sea II: Secrets of the Infinite Sea",
     date: "2022",
@@ -73,6 +96,7 @@ export const PROJECTS: Project[] = [
       note: "Promotional docu-essay — password protected, contact via e-mail for access.",
     },
   },
+  
   {
     slug: "abjad-hawwaz",
     title: "Abjad Hawwaz: How I Was Destroyed by a Mall Thrice",
