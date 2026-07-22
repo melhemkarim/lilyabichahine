@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ABOUT, PROJECTS } from "@/lib/data";
+import Link from "next/link";
 
 function Frame({
   src,
@@ -64,11 +65,20 @@ export default function About() {
             {ABOUT.heading}
           </h1>
 
-          <div className="mt-8 space-y-5 font-body text-lg leading-relaxed text-ink/85">
-            {ABOUT.bio.map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
-          </div>
+         <div className="mt-8 space-y-5 font-body text-lg leading-relaxed text-ink/85">
+  {ABOUT.bio.map((p, i) => (
+    <p key={i}>{p}</p>
+  ))}
+  <p>
+    For commissions, residencies, and press inquiries,{" "}
+    <Link
+      href="/contact"
+      className="text-rust underline decoration-brass/60 underline-offset-4 hover:decoration-rust"
+    >
+      get in touch →
+    </Link>
+  </p>
+</div>
         </motion.div>
       </section>
 
@@ -102,9 +112,6 @@ export default function About() {
     Practices,”</em> investigates the relationship between artistic fiction and
     legal imagination under the supervision of Éliane Beaufils and Nicole
     Immler.
-  </p>
-
-  <p className="mt-5">
     She holds degrees in Performing Arts from Paris VIII University (BA,
     2015–2019; MA, 2019–2020) and previously trained in law, earning a BA from
     Saint Joseph University, Lebanon (2003–2007), and an MA from Paris

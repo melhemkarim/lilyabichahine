@@ -31,6 +31,7 @@ export const metadata: Metadata = {
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
+  { href: "/#work", label: "Projects" },
   { href: "/about", label: "About / CV" },
   { href: "/contact", label: "Contact" },
 ];
@@ -96,17 +97,10 @@ export default function RootLayout({
               <p className="font-display text-2xl  text-cream">
                 {SITE.name}
               </p>
-              <p className="mt-2 max-w-sm font-display text-sm text-cream/60">
-                {SITE.tagline}
-              </p>
+          
             </div>
             <div className="flex flex-col gap-2 font-mono text-xs uppercase tracking-widest2 text-cream/70 md:items-end">
-              <a
-                href={`mailto:${SITE.email}`}
-                className="transition-colors hover:text-rust"
-              >
-                {SITE.email}
-              </a>
+              
               <span className="mt-2 text-cream/40">
                 © {new Date().getFullYear()} {SITE.name}
               </span>

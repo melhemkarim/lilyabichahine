@@ -148,7 +148,7 @@ export default function Home() {
 </section>
 
       {/* ---------------------------------------------------------------- INDEX */}
-      <section className="border-t border-line/60">
+      <section id="work" className="border-t border-line/60 scroll-mt-24">
         <div className="mx-auto max-w-6xl px-6 pt-8 md:px-10">
           <motion.p
             initial="hidden"
