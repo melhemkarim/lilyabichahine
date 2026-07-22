@@ -125,16 +125,17 @@ export default function Home() {
       </section>
 
       {/* ---------------------------------------------------------------- INTRO */}
-      <section className="mx-auto max-w-5xl px-6 py-24 md:px-10">
+      <section className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-16 pt-40 md:px-10">
+      
   <motion.div
     initial="hidden"
     whileInView="show"
     viewport={{ once: true, amount: 0.4 }}
     variants={fadeUp}
     transition={{ duration: 0.7 }}
-    className="text-center"
+    className="max-w-3xl"
   >
-    <p className="mx-auto max-w-4xl text-justify font-body text-2xl leading-relaxed text-ink/90 md:text-3xl">
+    <p className="max-w-4xl text-justify font-body text-2xl leading-relaxed text-ink/90 md:text-3xl">
       Lily Abichahine moves between performance, lecture-performance, video, and installation—addressing the body, Mediterranean myth, urban memory, and the legal questions that quietly govern them all.
       <Link
         href="/about"
