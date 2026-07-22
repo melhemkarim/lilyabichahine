@@ -46,8 +46,8 @@ const fadeUp = {
 };
 
 export default function Home() {
-  const [activeGroup, setActiveGroup] = useState<(typeof GROUPS)[number]>(GROUPS[0]);
-  const groupProjects = PROJECTS.filter((p) => p.group === activeGroup);
+  const [activeGroup, setActiveGroup] = useState<(typeof GROUPS)[number] | null>(null);
+  const groupProjects = activeGroup ? PROJECTS.filter((p) => p.group === activeGroup) : [];
   return (
     <div>
       {/* ---------------------------------------------------------------- HERO */}
@@ -135,7 +135,7 @@ export default function Home() {
     transition={{ duration: 0.7 }}
     className="max-w-3xl"
   >
-    <p className="max-w-4xl text-justify font-body text-2xl leading-relaxed text-ink/90 md:text-3xl">
+    <p className="max-w-4xl  font-body text-2xl leading-relaxed text-ink/90 md:text-3xl">
       Lily Abichahine moves between performance, lecture-performance, video, and installation—addressing the body, Mediterranean myth, urban memory, and the legal questions that quietly govern them all.
       <Link
         href="/about"
@@ -169,7 +169,7 @@ export default function Home() {
               return (
                 <button
                   key={group}
-                  onClick={() => setActiveGroup(group)}
+                  onClick={() => setActiveGroup(isActive ? null : group)}
                   className={`rounded-full border px-4 py-2 font-mono text-xs uppercase tracking-widest2 transition-colors ${
                     isActive
                       ? "border-rust bg-rust text-cream"
@@ -187,61 +187,74 @@ export default function Home() {
         </div>
 
         <AnimatePresence mode="wait">
-          <motion.ul
-            key={activeGroup}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.3 }}
-          >
-            {groupProjects.length === 0 && (
-              <li className="mx-auto max-w-6xl px-6 py-12 text-center font-body text-ink/50 md:px-10">
-                No works added to this section yet.
-              </li>
-            )}
-            {groupProjects.map((project, i) => (
-              <motion.li
-                key={project.slug}
-                initial="hidden"
-                animate="show"
-                variants={fadeUp}
-                transition={{ duration: 0.4, delay: (i % 4) * 0.05 }}
-                className="border-t border-line/60 last:border-b"
-              >
-                <Link
-                  href={`/work/${project.slug}`}
-                  className="group mx-auto flex max-w-6xl items-center gap-6 px-6 py-7 transition-colors hover:bg-paper2/70 md:px-10 md:py-9"
+          {activeGroup === null ? (
+            <motion.p
+              key="empty"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="mx-auto max-w-6xl px-6 py-16 text-center font-body text-ink/40 md:px-10"
+            >
+              Select a category above to view works.
+            </motion.p>
+          ) : (
+            <motion.ul
+              key={activeGroup}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.3 }}
+            >
+              {groupProjects.length === 0 && (
+                <li className="mx-auto max-w-6xl px-6 py-12 text-center font-body text-ink/50 md:px-10">
+                  No works added to this section yet.
+                </li>
+              )}
+              {groupProjects.map((project, i) => (
+                <motion.li
+                  key={project.slug}
+                  initial="hidden"
+                  animate="show"
+                  variants={fadeUp}
+                  transition={{ duration: 0.4, delay: (i % 4) * 0.05 }}
+                  className="border-t border-line/60 last:border-b"
                 >
-                  <span className="hidden font-mono text-sm text-brass sm:block">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
+                  <Link
+                    href={`/work/${project.slug}`}
+                    className="group mx-auto flex max-w-6xl items-center gap-6 px-6 py-7 transition-colors hover:bg-paper2/70 md:px-10 md:py-9"
+                  >
+                    <span className="hidden font-mono text-sm text-brass sm:block">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
 
-                  <Frame
-                    src={project.coverImage}
-                    alt={project.title}
-                    className="h-16 w-20 shrink-0 rounded-sm sm:h-20 sm:w-28"
-                  />
+                    <Frame
+                      src={project.coverImage}
+                      alt={project.title}
+                      className="h-16 w-20 shrink-0 rounded-sm sm:h-20 sm:w-28"
+                    />
 
-                  <div className="min-w-0 flex-1">
-                    <h2 className="truncate font-display text-xl text-ink transition-colors group-hover:text-rust sm:text-2xl md:text-3xl">
-                      {project.title}
-                    </h2>
-                    <p className="mt-1 font-mono text-[11px] uppercase tracking-widest2 text-ink/50">
-                      {project.category} · {project.location}
-                    </p>
-                  </div>
+                    <div className="min-w-0 flex-1">
+                      <h2 className="truncate font-display text-xl text-ink transition-colors group-hover:text-rust sm:text-2xl md:text-3xl">
+                        {project.title}
+                      </h2>
+                      <p className="mt-1 font-mono text-[11px] uppercase tracking-widest2 text-ink/50">
+                        {project.category} · {project.location}
+                      </p>
+                    </div>
 
-                  <span className="shrink-0 font-mono text-xs text-ink/50">
-                    {project.date}
-                  </span>
+                    <span className="shrink-0 font-mono text-xs text-ink/50">
+                      {project.date}
+                    </span>
 
-                  <span className="hidden shrink-0 font-display text-2xl text-ink/30 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-rust sm:block">
-                    →
-                  </span>
-                </Link>
-              </motion.li>
-            ))}
-          </motion.ul>
+                    <span className="hidden shrink-0 font-display text-2xl text-ink/30 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-rust sm:block">
+                      →
+                    </span>
+                  </Link>
+                </motion.li>
+              ))}
+            </motion.ul>
+          )}
         </AnimatePresence>
       </section>
 

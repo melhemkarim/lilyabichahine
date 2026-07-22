@@ -10,7 +10,9 @@ body {
   background-color: #e4d9be;
   color: #241e1a;
 }
-
+* {
+  font-family: var(--font-plex-mono), ui-monospace, monospace !important;
+}
 ::selection {
   background-color: #7a2e2e;
   color: #f1eada;
