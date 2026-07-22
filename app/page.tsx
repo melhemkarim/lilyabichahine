@@ -13,6 +13,14 @@ const GROUPS = [
   "Lecture Performances",
   "Tribunals",
   "Academic and Artistic Research",
+  "Contract",
+  "Lawyers Monologue",
+  "Law and art workshops",
+  "Arpentage",
+  "Architecture of Justice",
+  "False Self-Care Sequences or Catastrophe Meditation",
+  "Legal Clinic",
+
 ] as const;
 
 /** Warm placeholder-safe image block. If the file isn't there yet, it falls
