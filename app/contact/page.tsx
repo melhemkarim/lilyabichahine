@@ -2,7 +2,6 @@
 
 import { useState, FormEvent } from "react";
 import { motion } from "framer-motion";
-import { SITE } from "@/lib/data";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -55,18 +54,16 @@ export default function Contact() {
         variants={fadeUp}
         transition={{ duration: 0.7 }}
       >
-        <p className="font-mono text-xs uppercase tracking-widest2 text-rust">
+        <p className="font-mono text-xs uppercase tracking-widest2 text-[#C9A227]">
           Contact
         </p>
-        <h1 className="mt-4 font-display text-4xl  text-ink sm:text-5xl">
+        <h1 className="mt-4 font-display text-4xl text-black sm:text-5xl">
           Let&rsquo;s start a file.
         </h1>
-        <p className="mt-6 max-w-sm font-body text-lg leading-relaxed text-ink/80">
+        <p className="mt-6 max-w-sm font-body text-lg leading-relaxed text-black/70">
           For commissions, residencies, press, or collaboration inquiries,
           send a note below — or write directly.
         </p>
-
-        
       </motion.div>
 
       <motion.form
@@ -75,9 +72,9 @@ export default function Contact() {
         variants={fadeUp}
         transition={{ duration: 0.7, delay: 0.1 }}
         onSubmit={handleSubmit}
-        className="space-y-6 border border-line/60 bg-white p-8 sm:p-10"
+        className="space-y-6 border border-black/10 bg-white p-8 sm:p-10"
       >
-        <p className="font-mono text-[11px] uppercase tracking-widest2 text-ink/40">
+        <p className="font-mono text-[11px] uppercase tracking-widest2 text-black/40">
           Exhibit — Inquiry Form
         </p>
 
@@ -93,57 +90,57 @@ export default function Contact() {
 
         <div className="grid gap-6 sm:grid-cols-2">
           <label className="block">
-            <span className="font-mono text-xs uppercase tracking-widest2 text-ink/60">
+            <span className="font-mono text-xs uppercase tracking-widest2 text-black/60">
               Name
             </span>
             <input
               required
               name="name"
               type="text"
-              className="mt-2 w-full border-b border-line bg-transparent py-2 font-body text-base text-ink outline-none transition-colors focus:border-rust"
+              className="mt-2 w-full border-b border-black/20 bg-transparent py-2 font-body text-base text-black outline-none transition-colors focus:border-[#C9A227]"
             />
           </label>
           <label className="block">
-            <span className="font-mono text-xs uppercase tracking-widest2 text-ink/60">
+            <span className="font-mono text-xs uppercase tracking-widest2 text-black/60">
               Email
             </span>
             <input
               required
               name="email"
               type="email"
-              className="mt-2 w-full border-b border-line bg-transparent py-2 font-body text-base text-ink outline-none transition-colors focus:border-rust"
+              className="mt-2 w-full border-b border-black/20 bg-transparent py-2 font-body text-base text-black outline-none transition-colors focus:border-[#C9A227]"
             />
           </label>
         </div>
 
         <label className="block">
-          <span className="font-mono text-xs uppercase tracking-widest2 text-ink/60">
+          <span className="font-mono text-xs uppercase tracking-widest2 text-black/60">
             Subject
           </span>
           <input
             required
             name="subject"
             type="text"
-            className="mt-2 w-full border-b border-line bg-transparent py-2 font-body text-base text-ink outline-none transition-colors focus:border-rust"
+            className="mt-2 w-full border-b border-black/20 bg-transparent py-2 font-body text-base text-black outline-none transition-colors focus:border-[#C9A227]"
           />
         </label>
 
         <label className="block">
-          <span className="font-mono text-xs uppercase tracking-widest2 text-ink/60">
+          <span className="font-mono text-xs uppercase tracking-widest2 text-black/60">
             Message
           </span>
           <textarea
             required
             name="message"
             rows={5}
-            className="mt-2 w-full resize-none border-b border-line bg-transparent py-2 font-body text-base text-ink outline-none transition-colors focus:border-rust"
+            className="mt-2 w-full resize-none border-b border-black/20 bg-transparent py-2 font-body text-base text-black outline-none transition-colors focus:border-[#C9A227]"
           />
         </label>
 
         <button
           type="submit"
           disabled={status === "sending"}
-          className="group inline-flex items-center gap-3 rounded-full border border-brass/70 px-7 py-3 font-mono text-xs uppercase tracking-widest2 text-ink transition-colors hover:bg-rust hover:border-rust hover:text-cream disabled:opacity-50"
+          className="group inline-flex items-center gap-3 rounded-full border border-black px-7 py-3 font-mono text-xs uppercase tracking-widest2 text-black transition-colors hover:bg-[#C9A227] hover:border-[#C9A227] hover:text-black disabled:opacity-50"
         >
           {status === "sending" ? "Sending…" : "Send inquiry"}
           <span className="transition-transform duration-300 group-hover:translate-x-1">
@@ -155,7 +152,7 @@ export default function Contact() {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="font-body text-sm text-rust"
+            className="font-body text-sm text-[#C9A227]"
           >
             Received — thank you. A reply will follow shortly.
           </motion.p>
@@ -164,7 +161,7 @@ export default function Contact() {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="font-body text-sm text-rustDark"
+            className="font-body text-sm text-red-700"
           >
             {errorMsg || "Something went wrong — please try again."}
           </motion.p>

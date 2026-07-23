@@ -8,17 +8,23 @@ html {
 
 body {
   background-color: #ffffff;
-  color: #241e1a;
-}
-* {
-  font-family: var(--font-plex-mono), ui-monospace, monospace !important;
-}
-::selection {
-  background-color: #7a2e2e;
-  color: #f1eada;
+  color: #0a0a0a;
 }
 
-/* thin, warm scrollbar */
+/* Force the Inter font everywhere, regardless of how font-display /
+   font-body / font-mono are mapped in tailwind.config — since every
+   role uses the same typeface now, this is safe and guarantees it shows. */
+* {
+  font-family: var(--font-fraunces), ui-sans-serif, system-ui, sans-serif !important;
+}
+
+
+::selection {
+  background-color: #c9a227;
+  color: #0a0a0a;
+}
+
+/* thin scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -26,11 +32,11 @@ body {
   background: #ffffff;
 }
 ::-webkit-scrollbar-thumb {
-  background: #ffffff;
+  background: #e5e5e5;
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #ffffff;
+  background: #d4d4d4;
 }
 
 /* visible keyboard focus everywhere */
@@ -38,7 +44,7 @@ a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid #7a2e2e;
+  outline: 2px solid #c9a227;
   outline-offset: 3px;
 }
 
@@ -54,14 +60,4 @@ textarea:focus-visible {
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
-}
-
-.grain::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48ZmlsdGVyIGlkPSJuIj48ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgYmFzZUZyZXF1ZW5jeT0nMC44JyBudW1PY3RhdmVzPScyJyBzdGl0Y2hUaWxlcz0nc3RpdGNoJy8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9JzEwMCUnIGhlaWdodD0nMTAwJScgZmlsdGVyPSd1cmwoI24pJyBvcGFjaXR5PScwLjA0Jy8+PC9zdmc+");
-  opacity: 0.5;
-  z-index: 1;
 }

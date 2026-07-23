@@ -42,7 +42,15 @@ export type Project = {
     | "Visual Art"
     | "Lecture Performances"
     | "Tribunals"
-    | "Academic and Artistic Research";
+    | "Academic and Artistic Research"
+    | "Contract"
+    | "Lawyers Monologue"
+    | "Law and art workshops"
+    | "Arpentage"
+    | "Architecture of Justice"
+    | "False Self-Care Sequences or Catastrophe Meditation"
+    | "Legal Clinic"
+  ;
 };
 
 export const PROJECTS: Project[] = [
@@ -312,6 +320,155 @@ export const PROJECTS: Project[] = [
       "In keeping with the ethics of community-based practice, the work was neither photographed nor filmed, prioritizing live dialogue and collective presence. Drawing on her legal background, the artist reimagines the tribunal as a performative space to perform the law and recenter island communities often marginalized from cultural life.",
     ],
     coverImage: "/images/work/tribunal-for-an-island/cover.jpg",
+  },
+
+  // ------------------------------------------------- ACADEMIC & ARTISTIC RESEARCH
+
+  {
+    slug: "teaching-semester-abk-stuttgart",
+    title: "Teaching Semester — Academy of Fine Arts (ABK) Stuttgart",
+    date: "October 2025 – February 2026",
+    category: "Teaching",
+    venue: "Academy of Fine Arts (ABK)",
+    location: "Stuttgart, Germany (DE)",
+    group: "Academic and Artistic Research",
+    credits: ["Instructor — Lily Abichahine"],
+    description: [
+      "A teaching semester at the Academy of Fine Arts (ABK) Stuttgart, continuing the artist's work at the intersection of law and artistic practice with students in the Fachklasse for Digital and Time-based Art.",
+    ],
+    coverImage: "/images/work/teaching-semester-abk-stuttgart/cover.jpg",
+  },
+  {
+    slug: "workshop-for-artists-the-muse-khartoum",
+    title: "Workshop for Artists — The Muse Multi Studios",
+    date: "November 2025",
+    category: "Workshop",
+    venue: "The Muse Multi Studios",
+    location: "Khartoum, Sudan (SD)",
+    group: "Academic and Artistic Research",
+    credits: ["Facilitator — Lily Abichahine"],
+    description: [
+      "A workshop for artists held at The Muse Multi Studios in Khartoum, exploring law and fiction as tools for artistic research and production.",
+    ],
+    coverImage: "/images/work/workshop-for-artists-the-muse-khartoum/cover.jpg",
+  },
+  {
+    slug: "workshop-for-artists-ard-le-caire",
+    title: "Workshop for Artists — ARD Art Institute",
+    date: "November 2025",
+    category: "Workshop",
+    venue: "ARD Art Institute",
+    location: "Le Caire, Egypt (EG)",
+    group: "Academic and Artistic Research",
+    credits: ["Facilitator — Lily Abichahine"],
+    description: [
+      "A workshop for artists at the ARD Art Institute in Cairo, continuing the artist's research into legal fiction and artistic method.",
+    ],
+    coverImage: "/images/work/workshop-for-artists-ard-le-caire/cover.jpg",
+  },
+  {
+    slug: "workshop-law-students-macerata",
+    title: "Workshop for Law Students — University of Macerata",
+    date: "June 2025",
+    category: "Workshop",
+    venue: "University of Macerata, Ph.D. Programme in Law and Innovation",
+    location: "Italy (IT)",
+    group: "Academic and Artistic Research",
+    credits: ["Facilitator — Lily Abichahine"],
+    description: [
+      "A workshop for Ph.D. candidates in the Law and Innovation programme at the University of Macerata, examining the possibilities of artistic practice as a method of legal imagination.",
+    ],
+    coverImage: "/images/work/workshop-law-students-macerata/cover.jpg",
+  },
+  {
+    slug: "workshop-law-students-utrecht",
+    title: "Workshop for Law Students — Utrecht University",
+    date: "April 2023",
+    category: "Workshop",
+    venue: "Utrecht University, Master's degree in Public International Law",
+    location: "Netherlands (NL)",
+    group: "Academic and Artistic Research",
+    credits: [
+      "Facilitator — Lily Abichahine",
+      "Special thanks to — Prof. Fabrizio Marongiu Buonaiuti, Elisa Pandolfi, Prof. Kushtrim Istrefi, Prof. Catherine Blanchard",
+    ],
+    description: [
+      "A workshop for Master's students in Public International Law at Utrecht University, held in April 2023.",
+    ],
+    coverImage: "/images/work/workshop-law-students-utrecht/cover.jpg",
+  },
+  {
+    slug: "symposium-wurttembergischer-kunstverein",
+    title: "Symposium — Württembergischer Kunstverein Stuttgart",
+    date: "March 2026",
+    category: "Symposium",
+    venue: "Württembergischer Kunstverein Stuttgart",
+    location: "Germany (DE)",
+    group: "Academic and Artistic Research",
+    credits: ["Speaker — Lily Abichahine"],
+    description: [
+      "On critique, restrictions, and challenges to freedom in liberal democracies today, using the example of Germany and beyond.",
+    ],
+    coverImage: "/images/work/symposium-wurttembergischer-kunstverein/cover.jpg",
+  },
+  {
+    slug: "international-conference-mucem",
+    title: "International Conference — Mucem",
+    date: "13–14 June 2024",
+    category: "Conference",
+    venue: "Mucem, Circle of Researchers on the Middle East (CCMO)",
+    location: "Marseille, France (FR)",
+    group: "Academic and Artistic Research",
+    credits: ["Speaker — Lily Abichahine"],
+    description: [
+      "\u201cPalestine and the World,\u201d an international conference held at the Mucem in Marseille under the Circle of Researchers on the Middle East (CCMO).",
+    ],
+    coverImage: "/images/work/international-conference-mucem/cover.jpg",
+  },
+  {
+    slug: "panel-discussion-lighthouse-relief",
+    title: "Panel Discussion — Lighthouse Relief Greece",
+    date: "May 2023",
+    category: "Panel Discussion",
+    venue: "Lighthouse Relief Greece",
+    location: "Athens, Greece (GR)",
+    group: "Academic and Artistic Research",
+    credits: ["Panelist — Lily Abichahine"],
+    description: [
+      "Participation in a collective discussion on humanitarian and artistic issues related to migration, hosted by Lighthouse Relief Greece in Athens.",
+    ],
+    coverImage: "/images/work/panel-discussion-lighthouse-relief/cover.jpg",
+  },
+  {
+    slug: "online-lecture-university-of-dakota",
+    title: "Online Lecture — University of Dakota",
+    date: "February 2026",
+    category: "Lecture",
+    venue: "University of Dakota, School of Design, Architecture & Art",
+    location: "USA",
+    group: "Academic and Artistic Research",
+    credits: ["Speaker — Lily Abichahine"],
+    description: [
+      "An online lecture for the School of Design, Architecture & Art at the University of Dakota.",
+    ],
+    coverImage: "/images/work/online-lecture-university-of-dakota/cover.jpg",
+  },
+  {
+    slug: "online-lecture-tu-dublin",
+    title: "Online Lecture — TU Dublin",
+    date: "November 2024",
+    category: "Lecture",
+    venue: "TU Dublin, Master en art",
+    location: "Dublin, Ireland (IRL)",
+    group: "Academic and Artistic Research",
+    credits: [
+      "Speaker — Lily Abichahine",
+      "Special thanks to — Prof. Glenn Loughrann",
+    ],
+    description: [
+      "An online lecture for the Master en art programme at TU Dublin.",
+    ],
+    coverImage: "/images/work/online-lecture-tu-dublin/cover.jpg",
   },
 ];
 
