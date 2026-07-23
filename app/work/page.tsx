@@ -8,15 +8,14 @@ import { PROJECTS } from "@/lib/data";
 const GROUPS = [
   "Mare Nostrum",
   "Visual Art",
-  "Lecture Performances",
   "Tribunals",
   "Academic and Artistic Research",
-  "Contract",
-  "Lawyers Monologue",
+  "Contracts",
+  "Lawyer's Monologues",
   "Law and art workshops",
   "Arpentage",
   "Architecture of Justice",
-  "False Self-Care Sequences or Catastrophe Meditation",
+  "False Self-Care Sequences or Catastrophe Meditations",
   "Legal Clinic",
 ] as const;
 

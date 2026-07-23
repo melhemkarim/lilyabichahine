@@ -40,11 +40,10 @@ export type Project = {
   group:
     | "Mare Nostrum"
     | "Visual Art"
-    | "Lecture Performances"
     | "Tribunals"
     | "Academic and Artistic Research"
-    | "Contract"
-    | "Lawyers Monologue"
+    | "Contracts"
+    | "Lawyer's Monologues"
     | "Law and art workshops"
     | "Arpentage"
     | "Architecture of Justice"
@@ -103,6 +102,9 @@ export const PROJECTS: Project[] = [
       url: "https://vimeo.com/785677353",
       note: "Promotional docu-essay — password protected, contact via e-mail for access.",
     },
+    gallery: [
+    "/images/work/our-sea-2/gallery-1.jpg",
+  ],
   },
   
   {
@@ -156,10 +158,10 @@ export const PROJECTS: Project[] = [
     slug: "etreinte",
     title: "L'Étreinte",
     date: "2022",
-    category: "Lecture-Performance",
+    category: "Lawyer's Monologues",
     venue: "Conservatoire National Supérieur d'Art Dramatique",
     location: "Paris, France",
-    group: "Lecture Performances",
+    group: "Lawyer's Monologues",
     credits: [
       "Writer & Performer — Lily Abichahine",
       "With the generous guidance of Giuseppe Burighel",
@@ -174,10 +176,10 @@ export const PROJECTS: Project[] = [
     slug: "exquisite-corpse",
     title: "Exquisite Corpse",
     date: "2021",
-    category: "Lecture Performance",
+    category: "Lawyer's Monologues",
     venue: "Künstlerhaus Mousonturm",
     location: "Frankfurt, Germany",
-    group: "Lecture Performances",
+    group: "Lawyer's Monologues",
     credits: [
       "Writer & Performer — Lily Abichahine",
       "Assistant Researchers — Rola Makké, Lauren Hutchinson",
@@ -220,8 +222,6 @@ export const PROJECTS: Project[] = [
     coverImage: "/images/work/our-sea-1/cover.jpg",
     gallery: [
       "/images/work/our-sea-1/gallery-1.jpg",
-      "/images/work/our-sea-1/gallery-2.jpg",
-      "/images/work/our-sea-1/gallery-3.jpg",
     ],
     embed: {
       platform: "vimeo",
@@ -236,7 +236,7 @@ export const PROJECTS: Project[] = [
     category: "Collective Exhibition",
     venue: "Colonels Row",
     location: "New York, United States",
-    group: "Visual Art",
+    group: "Contracts",
     credits: [
       "Concept & Drafting — Lily Abichahine",
       "Assistant Researchers — Tala Rahal, Tamar Kharatishvlii",
@@ -470,6 +470,109 @@ export const PROJECTS: Project[] = [
     ],
     coverImage: "/images/work/online-lecture-tu-dublin/cover.jpg",
   },
+  {
+  slug: "arpentage-assembling-the-story",
+  title: "L’Arpentage – Assembling the Story",
+  date: "2026",
+  category: "Collective Reading",
+  venue: "Stuttgarter Schriftstellerhaus",
+  location: "Stuttgart, Germany",
+  group: "Arpentage",
+  credits: [
+    "Host — Robin Ackermann",
+    "Direction, Concept & Filming — Lily Abichahine",
+  ],
+  description: [
+    "In this artistic practice, collective reading becomes a form of making. Rather than treating a book as something to be individually consumed, it is approached as an artwork activated by a group through the French collective reading method known as Arpentage.",
+    "Participants read fragments of a text individually before assembling meaning together through discussion. The story is gradually produced through multiple voices and perspectives.",
+    "Each session functions as both a reading and a performative act of interpretation. Discussions and reflections are filmed, forming part of the artwork itself so that storytelling emerges collectively from the book and its participants.",
+    "The first iteration centered on James Baldwin's 'The Fire Next Time', exploring questions of race, religion, and identity in the United States.",
+  ],
+  coverImage: "/images/work/arpentage-assembling-the-story/cover.jpg",
+},
+{
+  slug: "representations-trials-and-power-workshop",
+  title: "Workshop on Representations, Trials and Power",
+  date: "Since November 2024",
+  category: "Academic Teaching",
+  venue: "Various Universities and Art Institutions",
+  location: "International",
+  group: "Law and art workshops",
+  credits: [
+    "Workshop Conceived and Delivered — Lily Abichahine",
+    "Developed as part of the PhD research 'Fiction in Art and Law: Rethinking the Possibilities of Law via Artistic Practices'",
+  ],
+  description: [
+    "This seminar explores how law and judicial systems are represented, reinvented, and contested through artistic practice.",
+    "Drawing on literature, theatre, performance, and the visual arts, participants examine law not only as a regulatory framework but also as an artistic object in its own right.",
+    "Historical and contemporary case studies are brought together to investigate the relationships between art and justice while considering the potential of artistic practice as an alternative institutional space.",
+  ],
+  coverImage: "/images/work/representations-trials-and-power-workshop/cover.jpg",
+},
+{
+  slug: "choreographic-narrations-fragments-of-a-running-body",
+  title: "Choreographic Narrations, Fragments of a Running Body",
+  date: "April 2020",
+  category: "Video Performance",
+  venue: "Beirut Art Centre",
+  location: "Beirut, Lebanon",
+  group: "Visual Art",
+  credits: [
+    "Author & Performer — Lily Abichahine",
+    "Sound — Kinda Hassan",
+    "Academic & Artistic Advisor — Eliane Beaufils",
+    "Project carried out as part of the Master II in Theater, University of Paris 8",
+  ],
+  description: [
+    "A 13-minute dance video developed through a creative research process exploring race and the experience of running as an aesthetic gesture.",
+    "The work investigates thoughts and sensations before, during, and after a race through a diary narrated by the artist, recounting the preparation, running, and aftermath of the Athens Marathon 2018.",
+  ],
+  coverImage: "/images/work/choreographic-narrations-fragments-of-a-running-body/cover.jpg",
+  embed: {
+    platform: "vimeo",
+    url: "https://vimeo.com/847143932?share=copy",
+    note: "Password provided upon request.",
+  },
+},
+{
+  slug: "hyper-un-sur-real",
+  title: "Hyper-/ Un-/ Sur-Real",
+  date: "2025",
+  category: "Collective Exhibition",
+  venue: "Galeria Kaufhof",
+  location: "Stuttgart, Germany",
+  group: "Visual Art",
+  credits: [
+    "Participant Artist — Lily Abichahine",
+  ],
+  description: [
+    "Hyper-/ Un-/ Sur-Real explores the promises and failures of modernity through the tensions between digital exaltation and analogue decay.",
+    "Bringing together works from international artists, the exhibition reflects on ecological crisis, colonialism, war, and speculative futures while questioning the utopian narratives of technological progress.",
+  ],
+  coverImage: "/images/work/hyper-un-sur-real/cover.jpg",
+},
+{
+  slug: "mare-nostrum-ii-secrets-of-the-infinite-sea-installation",
+  title: "Mare Nostrum II: Secrets of the Infinite Sea",
+  date: "2022",
+  category: "Video Installation",
+  venue: "Dream City Festival",
+  location: "Tunis, Tunisia",
+  group: "Visual Art",
+  credits: [
+    "Artist — Lily Abichahine",
+  ],
+  description: [
+    "The video that originally accompanied the lecture performance began to take on a life of its own, presented as a continuous 24-hour loop over three days at the Dream City Festival.",
+    "This marked the beginning of a new trajectory for the work, evolving beyond a performative accompaniment into an autonomous visual installation that could exist independently as an immersive moving-image artwork.",
+  ],
+  coverImage:
+    "/images/work/mare-nostrum-ii-secrets-of-the-infinite-sea-installation/cover.jpg",
+  gallery: [
+    "/images/work/mare-nostrum-ii-secrets-of-the-infinite-sea-installation/gallery-1.jpg",
+    "/images/work/mare-nostrum-ii-secrets-of-the-infinite-sea-installation/gallery-2.jpg",
+  ],
+},
 ];
 
 export const ABOUT = {
