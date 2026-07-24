@@ -197,33 +197,40 @@ export default function ProjectPage({
       )}
 
       {/* -------------------------------------------------------------- EMBED */}
-      {project.embed && (
-        <section className="border-t border-black/10 bg-black">
-          <div className="mx-auto max-w-4xl px-6 py-16 md:px-10">
-            <p className="font-mono text-xs uppercase tracking-widest2 text-white/50">
-              {project.embed.platform === "vimeo" ? "Vimeo" : "YouTube"}
-            </p>
-            <div className="mt-6 aspect-video w-full overflow-hidden border border-white/10">
-              <iframe
-                className="h-full w-full"
-                src={
-                  project.embed.platform === "vimeo"
-                    ? vimeoEmbedUrl(project.embed.url)
-                    : youtubeEmbedUrl(project.embed.url)
-                }
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowFullScreen
-                title={`${project.title} video`}
-              />
-            </div>
-            {project.embed.note && (
-              <p className="mt-4 font-body text-sm text-white/60">
-                {project.embed.note}
-              </p>
-            )}
+      {/* -------------------------------------------------------------- EMBEDS */}
+{project.embeds && project.embeds.length > 0 && (
+  <section className="border-t border-black/10 bg-black">
+    <div className="mx-auto max-w-4xl space-y-12 px-6 py-16 md:px-10">
+      {project.embeds.map((embed, index) => (
+        <div key={index}>
+          <p className="font-mono text-xs uppercase tracking-widest2 text-white/50">
+            {embed.platform === "vimeo" ? "Vimeo" : "YouTube"}
+          </p>
+
+          <div className="mt-6 aspect-video w-full overflow-hidden border border-white/10">
+            <iframe
+              className="h-full w-full"
+              src={
+                embed.platform === "vimeo"
+                  ? vimeoEmbedUrl(embed.url)
+                  : youtubeEmbedUrl(embed.url)
+              }
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+              title={`${project.title} video ${index + 1}`}
+            />
           </div>
-        </section>
-      )}
+
+          {embed.note && (
+            <p className="mt-4 font-body text-sm text-white/60">
+              {embed.note}
+            </p>
+          )}
+        </div>
+      ))}
+    </div>
+  </section>
+)}
 
       {/* -------------------------------------------------------------- NEXT/PREV */}
       <section className="border-t border-black/10">

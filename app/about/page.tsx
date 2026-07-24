@@ -64,11 +64,34 @@ export default function About() {
           <h1 className="mt-4 font-display text-4xl  text-ink sm:text-5xl">
             {ABOUT.heading}
           </h1>
-
+<p>
+    
+  </p>
          <div className="mt-8 space-y-5 font-body text-lg leading-relaxed text-ink/85">
   {ABOUT.bio.map((p, i) => (
     <p key={i}>{p}</p>
   ))}
+
+  <div className="pt-8">
+    <p className="font-mono text-xs uppercase tracking-widest2 text-rust">
+      Academic 
+    </p>
+
+    <div className="mt-6">
+      Lily Abichahine is currently pursuing a PhD in Performing Arts at EDESTA,
+    Paris VIII University, in affiliation with the University of Humanistic
+    Studies in Utrecht, Netherlands. Her doctoral research,
+    <em>“Fiction in Art and Law: Rethinking the Possibilities of Law via Artistic
+    Practices,”</em> investigates the relationship between artistic fiction and
+    legal imagination under the supervision of Éliane Beaufils and Nicole
+    Immler.
+    She holds degrees in Performing Arts from Paris VIII University (BA,
+    2015–2019; MA, 2019–2020) and previously trained in law, earning a BA from
+    Saint Joseph University, Lebanon (2003–2007), and an MA from Paris
+    Descartes University (2008).
+    </div>
+  </div>
+
   <p>
     For commissions, residencies, and press inquiries,{" "}
     <Link
@@ -82,44 +105,7 @@ export default function About() {
         </motion.div>
       </section>
 
-      {/* ---------------------------------------------------------- CURRICULUM */}
-      <section className="border-t border-line/60">
-        <div className="mx-auto max-w-6xl px-6 py-16 md:px-10">
-          <motion.p
-  initial="hidden"
-  whileInView="show"
-  viewport={{ once: true }}
-  variants={fadeUp}
-  transition={{ duration: 0.5 }}
-  className="font-mono text-xs uppercase tracking-widest2 text-ink/50"
->
-  Academic Background
-</motion.p>
-
-<motion.div
-  initial="hidden"
-  whileInView="show"
-  viewport={{ once: true }}
-  variants={fadeUp}
-  transition={{ duration: 0.5, delay: 0.1 }}
-  className="mt-6 max-w-4xl font-body text-lg leading-relaxed text-ink/85"
->
-  <p>
-    Lily Abichahine is currently pursuing a PhD in Performing Arts at EDESTA,
-    Paris VIII University, in affiliation with the University of Humanistic
-    Studies in Utrecht, Netherlands. Her doctoral research,
-    <em>“Fiction in Art and Law: Rethinking the Possibilities of Law via Artistic
-    Practices,”</em> investigates the relationship between artistic fiction and
-    legal imagination under the supervision of Éliane Beaufils and Nicole
-    Immler.
-    She holds degrees in Performing Arts from Paris VIII University (BA,
-    2015–2019; MA, 2019–2020) and previously trained in law, earning a BA from
-    Saint Joseph University, Lebanon (2003–2007), and an MA from Paris
-    Descartes University (2008).
-  </p>
-</motion.div>
-        </div>
-      </section>
+      
     </div>
   );
 }

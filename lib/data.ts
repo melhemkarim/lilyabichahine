@@ -17,7 +17,7 @@ export const SITE = {
   heroImage: "/images/about/portrait-wide.jpg",
 };
 
-export type Embed = {
+export type Embeds = {
   platform: "vimeo" | "youtube";
   url: string;
   note?: string;
@@ -36,7 +36,7 @@ export type Project = {
   description: string[];
   coverImage: string;
   gallery?: string[];
-  embed?: Embed;
+  embeds?: Embeds[];
   group:
     | "Mare Nostrum"
     | "Visual Art"
@@ -97,11 +97,20 @@ export const PROJECTS: Project[] = [
       "Exploring both reality and mythology, she tackles the myth of Prometheus. In this work, she transforms herself into a contemporary haruspex and tells the story of migration from ancient to contemporary times, offering her audience a reading of the future that mixes facts with dark humor, in text, video, and sound.",
     ],
     coverImage: "/images/work/our-sea-2/cover.jpg",
-    embed: {
-      platform: "vimeo",
-      url: "https://vimeo.com/785677353",
-      note: "Promotional docu-essay — password protected, contact via e-mail for access.",
-    },
+    embeds: [
+  {
+    platform: "vimeo",
+    url: "https://vimeo.com/853943596",
+    note: "Performance documentation",
+  },
+  {
+    platform: "vimeo",
+    url: "https://vimeo.com/785677353",
+    note: "Promotional docu-essay",
+  },
+],
+   
+      
     gallery: [
     "/images/work/our-sea-2/gallery-1.jpg",
   ],
@@ -128,11 +137,13 @@ export const PROJECTS: Project[] = [
       "Symbol of a city in continuous construction and deconstruction, the preservation of memory is achieved through the archiving of oral history and the physical reconstruction of one of the main school elements.",
     ],
     coverImage: "/images/work/abjad-hawwaz/cover.jpg",
-    embed: {
-      platform: "vimeo",
-      url: "https://vimeo.com/792920487",
-      note: "Video of the sandpit in motion — password protected, contact via e-mail for access.",
-    },
+    embeds: [
+  {
+    platform: "vimeo",
+    url: "https://vimeo.com/792920487",
+    note: "Video of the sandpit in motion — password protected, contact via e-mail for access.",
+  },
+],
   },
   {
     slug: "extended-cities",
@@ -223,11 +234,13 @@ export const PROJECTS: Project[] = [
     gallery: [
       "/images/work/our-sea-1/gallery-1.jpg",
     ],
-    embed: {
-      platform: "vimeo",
-      url: "https://vimeo.com/664913612",
-      note: "Excerpts from performance — password protected, contact via e-mail for access.",
-    },
+    embeds: [
+  {
+    platform: "vimeo",
+    url: "https://vimeo.com/664913612",
+    note: "Excerpts from performance — password protected, contact via e-mail for access.",
+  },
+],
   },
   {
     slug: "agreement-for-photography-provision",
@@ -321,6 +334,27 @@ export const PROJECTS: Project[] = [
     ],
     coverImage: "/images/work/tribunal-for-an-island/cover.jpg",
   },
+  {
+  slug: "legal-clinic-for-artists-lebanon",
+  title: "Legal Clinic for Artists in Lebanon",
+  date: "October 2026 – April 2027",
+  category: "Pilot Project",
+  venue: "Beirut Art Center",
+  location: "Beirut, Lebanon",
+  group: "Legal Clinic",
+  credits: [
+    "Lead & Founder — Lily Abichahine",
+    "In partnership with — Beirut Art Center",
+    "Supported by Seed Funding — Arab Fund for Arts and Culture (AFAC)",
+  ],
+  description: [
+    "The Legal Clinic for Artists in Lebanon is a pilot initiative establishing the country's first legal clinic dedicated to artists and cultural practitioners.",
+    "The project creates a new space connecting artists, legal experts, institutions, and cultural practitioners to address the legal challenges affecting artistic practice, including contracts, copyright, intellectual property, production, and working conditions.",
+    "Through the development of a growing network of lawyers and cultural partners, the initiative aims to provide accessible legal support while strengthening the sustainability of Lebanon's cultural ecosystem.",
+    "The pilot launches from 26–31 October 2026 at Beirut Art Center, marking the beginning of a long-term platform for dialogue between art and law.",
+  ],
+  coverImage: "/images/work/legal-clinic-for-artists-lebanon/cover.jpg",
+},
 
   // ------------------------------------------------- ACADEMIC & ARTISTIC RESEARCH
 
@@ -528,7 +562,7 @@ export const PROJECTS: Project[] = [
     "The work investigates thoughts and sensations before, during, and after a race through a diary narrated by the artist, recounting the preparation, running, and aftermath of the Athens Marathon 2018.",
   ],
   coverImage: "/images/work/choreographic-narrations-fragments-of-a-running-body/cover.jpg",
-  embed: {
+  embeds: {
     platform: "vimeo",
     url: "https://vimeo.com/847143932?share=copy",
     note: "Password provided upon request.",
