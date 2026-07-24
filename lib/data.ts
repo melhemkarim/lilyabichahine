@@ -562,12 +562,13 @@ export const PROJECTS: Project[] = [
     "The work investigates thoughts and sensations before, during, and after a race through a diary narrated by the artist, recounting the preparation, running, and aftermath of the Athens Marathon 2018.",
   ],
   coverImage: "/images/work/choreographic-narrations-fragments-of-a-running-body/cover.jpg",
-  embeds: {
+   embeds: [
+  {
     platform: "vimeo",
     url: "https://vimeo.com/847143932?share=copy",
-    note: "Password provided upon request.",
+    note: "Video of the sandpit in motion — password protected, contact via e-mail for access.",
   },
-},
+],
 {
   slug: "hyper-un-sur-real",
   title: "Hyper-/ Un-/ Sur-Real",
