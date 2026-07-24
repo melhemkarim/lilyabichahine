@@ -96,7 +96,7 @@ export default function About() {
     For commissions, residencies, and press inquiries,{" "}
     <Link
       href="/contact"
-      className="text-rust underline decoration-brass/60 underline-offset-4 hover:decoration-rust"
+      className="text-[#C9A227] underline decoration-brass/60 underline-offset-4 "
     >
       get in touch →
     </Link>

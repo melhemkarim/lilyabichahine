@@ -1,31 +1,15 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
-import { ABOUT, SITE } from "@/lib/data";
+import { motion, AnimatePresence } from "framer-motion";
+import { PROJECTS, SITE } from "@/lib/data";
 
-function Frame({
-  src,
-  alt,
-  className = "",
-}: {
-  src: string;
-  alt: string;
-  className?: string;
-}) {
-  return (
-    <div
-      role="img"
-      aria-label={alt}
-      className={`relative overflow-hidden bg-black/5 ${className}`}
-      style={{
-        backgroundImage: `url(${src})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    />
-  );
-}
+// Slideshow pulls from every project except the CV-style academic/artistic
+// research entries, since those don't have real photography yet.
+const SLIDES = PROJECTS.filter((p) => p.group !== "Academic and Artistic Research");
+
+const AUTO_ADVANCE_MS = 5500;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -33,111 +17,136 @@ const fadeUp = {
 };
 
 export default function Home() {
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  const next = useCallback(() => {
+    setIndex((i) => (i + 1) % SLIDES.length);
+  }, []);
+
+  const prev = useCallback(() => {
+    setIndex((i) => (i - 1 + SLIDES.length) % SLIDES.length);
+  }, []);
+
+  useEffect(() => {
+    if (paused || SLIDES.length <= 1) return;
+    const id = setInterval(next, AUTO_ADVANCE_MS);
+    return () => clearInterval(id);
+  }, [paused, next]);
+
+  const slide = SLIDES[index];
+
   return (
     <div>
-      {/* -------------------------------------------------------- PORTRAIT + BIO */}
-      <section className="mx-auto grid max-w-6xl gap-10 px-6 pb-16 pt-16 md:grid-cols-[1fr_1.3fr] md:gap-16 md:px-10 md:pt-24">
-        <motion.div
-          initial="hidden"
-          animate="show"
-          variants={fadeUp}
-          transition={{ duration: 0.7 }}
-        >
-          <Frame
-            src={ABOUT.portrait}
-            alt={`${SITE.name} — portrait`}
-            className="aspect-[4/5] w-full"
-          />
-          <p className="mt-3 font-mono text-[11px] uppercase tracking-widest2 text-black/40">
-            {ABOUT.portraitCredit}
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial="hidden"
-          animate="show"
-          variants={fadeUp}
-          transition={{ duration: 0.7, delay: 0.15 }}
-        >
-          <p className="font-mono text-xs uppercase tracking-widest2 text-[#C9A227]">
-            {SITE.role}
-          </p>
-          <h1 className="mt-4 font-display text-4xl leading-[1.05] text-black sm:text-5xl">
-            {SITE.name}
-          </h1>
-          <p className="mt-5 max-w-lg font-body text-lg text-black/70">
-            {SITE.tagline}
-          </p>
-
-          <div className="mt-8 space-y-5 font-body text-lg leading-relaxed text-black/80">
-            {ABOUT.bio.map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
-          </div>
-
-          <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 font-mono text-xs uppercase tracking-widest2">
-            <Link
-              href="/work"
-              className="group inline-flex items-center gap-2 text-black transition-colors hover:text-[#C9A227]"
-            >
-              Selected Works
-              <span className="transition-transform duration-300 group-hover:translate-x-1">
-                →
-              </span>
+      {/* ---------------------------------------------------------------- HERO SLIDESHOW */}
+      <section
+        className="relative flex h-[60vh] min-h-[420px] flex-col justify-end overflow-hidden border-b border-black/10 bg-black"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={slide.slug}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.7, ease: "easeInOut" }}
+            className="absolute inset-0"
+          >
+            <Link href={`/work/${slide.slug}`} className="block h-full w-full">
+              <div
+                className="h-full w-full bg-black/10"
+                style={{
+                  backgroundImage: `linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.35) 60%, rgba(0,0,0,0.45) 100%), url(${slide.coverImage})`,                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              />
             </Link>
-            <Link
-              href="/contact"
-              className="group inline-flex items-center gap-2 text-black transition-colors hover:text-[#C9A227]"
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Slide caption */}
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-10 md:px-10">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={slide.slug}
+              initial="hidden"
+              animate="show"
+              exit={{ opacity: 0, y: -10 }}
+              variants={fadeUp}
+              transition={{ duration: 0.5 }}
             >
-              Contact
-              <span className="transition-transform duration-300 group-hover:translate-x-1">
-                →
-              </span>
-            </Link>
-          </div>
-        </motion.div>
+              <p className="font-mono text-xs uppercase tracking-widest2 text-[#C9A227]">
+                {slide.category} · {slide.date}
+              </p>
+              <Link href={`/work/${slide.slug}`} className="group inline-block">
+                <h1 className="mt-3 max-w-2xl font-display text-3xl leading-[1.05] text-white transition-colors group-hover:text-[#C9A227] sm:text-4xl md:text-5xl">
+                  {slide.title}
+                </h1>
+              </Link>
+              <p className="mt-3 font-mono text-xs uppercase tracking-widest2 text-white/60">
+                {slide.venue} · {slide.location}
+              </p>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Arrows */}
+        <button
+          onClick={prev}
+          aria-label="Previous project"
+          className="group absolute left-4 top-1/2 z-10 hidden -translate-y-1/2 items-center justify-center rounded-full border border-white/30 p-3 text-white transition-colors hover:border-[#C9A227] hover:text-[#C9A227] sm:flex"
+        >
+          ←
+        </button>
+        <button
+          onClick={next}
+          aria-label="Next project"
+          className="group absolute right-4 top-1/2 z-10 hidden -translate-y-1/2 items-center justify-center rounded-full border border-white/30 p-3 text-white transition-colors hover:border-[#C9A227] hover:text-[#C9A227] sm:flex"
+        >
+          →
+        </button>
+
+        {/* Dots */}
+        <div className="relative z-10 mx-auto mb-8 flex w-full max-w-6xl gap-2 px-6 md:px-10">
+          {SLIDES.map((s, i) => (
+            <button
+              key={s.slug}
+              onClick={() => setIndex(i)}
+              aria-label={`Go to slide ${i + 1}`}
+              className={`h-1.5 rounded-full transition-all ${
+                i === index ? "w-8 bg-[#C9A227]" : "w-4 bg-white/30 hover:bg-white/50"
+              }`}
+            />
+          ))}
+        </div>
       </section>
 
-      {/* ---------------------------------------------------------- CURRICULUM */}
+      {/* ---------------------------------------------------------------- INTRO */}
+      
+      {/* ---------------------------------------------------------------- CTA */}
       <section className="border-t border-black/10">
-        <div className="mx-auto max-w-6xl px-6 py-16 md:px-10">
-          <motion.p
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            transition={{ duration: 0.5 }}
-            className="font-mono text-xs uppercase tracking-widest2 text-black/50"
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.5 }}
+          variants={fadeUp}
+          transition={{ duration: 0.7 }}
+          className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-8 px-6 py-24 md:flex-row md:items-center md:px-10"
+        >
+          <h3 className="max-w-lg font-display text-3xl text-black sm:text-4xl">
+            Explore the full body of work.
+          </h3>
+          <Link
+            href="/work"
+            className="group inline-flex items-center gap-3 rounded-full border border-black px-7 py-3 font-mono text-xs uppercase tracking-widest2 text-black transition-colors hover:border-[#C9A227] hover:text-[#C9A227]"
           >
-            Academic Background
-          </motion.p>
-
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="mt-6 max-w-4xl font-body text-lg leading-relaxed text-black/80"
-          >
-            <p>
-              Lily Abichahine is currently pursuing a PhD in Performing Arts at
-              EDESTA, Paris VIII University, in affiliation with the
-              University of Humanistic Studies in Utrecht, Netherlands. Her
-              doctoral research,{" "}
-              <span className="font-medium">
-                “Fiction in Art and Law: Rethinking the Possibilities of Law
-                via Artistic Practices,”
-              </span>{" "}
-              investigates the relationship between artistic fiction and legal
-              imagination under the supervision of Éliane Beaufils and Nicole
-              Immler. She holds degrees in Performing Arts from Paris VIII
-              University (BA, 2015–2019; MA, 2019–2020) and previously trained
-              in law, earning a BA from Saint Joseph University, Lebanon
-              (2003–2007), and an MA from Paris Descartes University (2008).
-            </p>
-          </motion.div>
-        </div>
+            Selected Works
+            <span className="transition-transform duration-300 group-hover:translate-x-1">
+              →
+            </span>
+          </Link>
+        </motion.div>
       </section>
     </div>
   );

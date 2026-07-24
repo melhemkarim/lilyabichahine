@@ -170,8 +170,13 @@ export default function ProjectPage({
               transition={{ duration: 0.5 }}
               className="font-mono text-xs uppercase tracking-widest2 text-black/50"
             >
-              Gallery
+                  Gallery
             </motion.p>
+            {project.galleryCredit && (
+              <p className="mt-1 font-mono text-[11px] uppercase tracking-widest2 text-black/40">
+                {project.galleryCredit} — Pictures
+              </p>
+            )}
 
             <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
               {project.gallery.map((src, i) => (

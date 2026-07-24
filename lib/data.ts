@@ -36,6 +36,7 @@ export type Project = {
   description: string[];
   coverImage: string;
   gallery?: string[];
+  galleryCredit?: string; 
   embeds?: Embeds[];
   group:
     | "Mare Nostrum"
@@ -113,6 +114,11 @@ export const PROJECTS: Project[] = [
       
     gallery: [
     "/images/work/our-sea-2/gallery-1.jpg",
+    "/images/work/our-sea-2/gallery-2.jpg",
+    "/images/work/our-sea-2/gallery-3.jpg",
+    "/images/work/our-sea-2/gallery-4.jpg",
+    "/images/work/our-sea-2/gallery-5.jpg",
+
   ],
   },
   
@@ -231,9 +237,14 @@ export const PROJECTS: Project[] = [
       "Choreography for a Woman and a Stone reinterprets the myth of Sisyphus: Sisyphus is a woman, from the region surrounding this 'middle basin,' leading a circular run lasting roughly 40 minutes, tied by a rope to a stone placed at the center of an 8-by-8-meter stage. Her run leaves traces on the ground, while behind her a screen projects footage filmed in both localities.",
     ],
     coverImage: "/images/work/our-sea-1/cover.jpg",
-    gallery: [
-      "/images/work/our-sea-1/gallery-1.jpg",
-    ],
+     gallery: [
+    "/images/work/our-sea-1/gallery-1.jpg",
+    "/images/work/our-sea-1/gallery-2.jpg",
+    "/images/work/our-sea-1/gallery-3.jpg",
+    "/images/work/our-sea-1/gallery-4.jpg",
+    "/images/work/our-sea-1/gallery-5.jpg",
+
+  ],
     embeds: [
   {
     platform: "vimeo",
@@ -286,6 +297,15 @@ export const PROJECTS: Project[] = [
       "The project was commissioned by Johanne Mazeaud of the Institut français of Stuttgart and presented under the curation of the Kunsthalle Stuttgart.",
     ],
     coverImage: "/images/work/tribunal-for-the-neckar/cover.jpg",
+    galleryCredit: "NECKARINSEL",             
+    gallery: [                                  
+      "/images/work/tribunal-for-the-neckar/NECKARINSEL/1.jpg",
+      "/images/work/tribunal-for-the-neckar/NECKARINSEL/2.jpg",
+      "/images/work/tribunal-for-the-neckar/NECKARINSEL/3.jpg",
+      "/images/work/tribunal-for-the-neckar/NECKARINSEL/4.jpg",
+      "/images/work/tribunal-for-the-neckar/NECKARINSEL/5.jpg",
+
+    ],
   },
   {
     slug: "bodies-on-trial-218",
@@ -610,6 +630,23 @@ export const PROJECTS: Project[] = [
     "/images/work/mare-nostrum-ii-secrets-of-the-infinite-sea-installation/gallery-2.jpg",
   ],
 },
+{
+  slug: "i-the-semite",
+  title: "I, the Semite",
+  date: "2026",
+  category: "Lawyer's Monologue",
+  venue: "",
+  location: "The Netherlands",
+  group: "Lawyer's Monologues",
+  credits: [
+    "Copyright — Thomas de Wit",
+  ],
+  description: [
+    "I, the Semite is a lawyer's monologue developed through the Dialogics of Justice research, reflecting on the relationality between different forms of historical injustice and tracing how historical injustices are named, denied, and redefined within and beyond Dutch civil courts.",
+    "Blending fact and fiction, the personal and the political, the work moves between testimony and imagination, where legal records fracture and embodied voices emerge. The monologue examines institutionalized violence, memory, and the politics of recognition, asking how language shapes justice and what remains unresolved.",
+  ],
+  coverImage: "/images/work/i-the-semite/cover.jpg",
+}
 ];
 
 export const ABOUT = {

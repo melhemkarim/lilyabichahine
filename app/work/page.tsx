@@ -62,7 +62,6 @@ export default function Work() {
             transition={{ duration: 0.5 }}
             className="font-mono text-xs uppercase tracking-widest2 text-[#C9A227]"
           >
-            Index
           </motion.p>
           <motion.h1
             initial="hidden"
